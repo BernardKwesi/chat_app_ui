@@ -18,5 +18,40 @@ class User {
       imageUrl:
           'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
     ),
+    User(
+      id: '2',
+      name: 'John',
+      surname: 'Whitaker',
+      imageUrl:
+          'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    ),
+    User(
+      id: '3',
+      name: 'John',
+      surname: 'Whitaker',
+      imageUrl:
+          'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    ),
+    User(
+      id: '4',
+      name: 'John',
+      surname: 'Whitaker',
+      imageUrl:
+          'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    ),
+    User(
+      id: '5',
+      name: 'John',
+      surname: 'Whitaker',
+      imageUrl:
+          'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    ),
+    User(
+      id: '6',
+      name: 'John',
+      surname: 'Whitaker',
+      imageUrl:
+          'https://images.unsplash.com/photo-1570295999919-56…fHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+    ),
   ];
 }
