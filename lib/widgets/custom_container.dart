@@ -9,7 +9,7 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.7,
+      height: height,
       margin: const EdgeInsets.only(top: 10),
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
       decoration: BoxDecoration(
