@@ -26,7 +26,7 @@ class Chat {
 
   static List<Chat> chats = [
     Chat(
-        id: '0',
+        id: '1',
         users: User.users
             .where((user) => user.id == '1' || user.id == '2')
             .toList(),
@@ -34,6 +34,16 @@ class Chat {
             .where((message) =>
                 (message.senderId == '1' || message.senderId == '2') &
                 (message.recipientId == '1' || message.recipientId == '2'))
-            .toList())
+            .toList()),
+    Chat(
+        id: '2',
+        users: User.users
+            .where((user) => user.id == '1' || user.id == '2')
+            .toList(),
+        messages: Message.messages
+            .where((message) =>
+                (message.senderId == '1' || message.senderId == '2') &
+                (message.recipientId == '1' || message.recipientId == '2'))
+            .toList()),
   ];
 }

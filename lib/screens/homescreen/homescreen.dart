@@ -47,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Get.changeThemeMode(
                       Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+                  print("=======test ========");
+                  print(Get.isDarkMode);
                 },
                 icon: Icon(Get.isDarkMode ? Icons.dark_mode : Icons.light_mode))
           ],
@@ -70,52 +72,56 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class ChatMessages extends StatelessWidget {
+  final double height;
+  final List<Chat> chats;
+
   const ChatMessages({
     Key? key,
     required this.height,
     required this.chats,
   }) : super(key: key);
 
-  final double height;
-  final List<Chat> chats;
-
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
         height: height,
-        child: ListView.builder(itemBuilder: (context, index) {
-          //Get the other user profile
-          User user = chats[index].users!.where((user) => user.id != '1').first;
+        child: ListView.builder(
+            itemCount: chats.length,
+            itemBuilder: (context, index) {
+              //Get the other user profile
 
-          //Sort the messages based on the creation time
-          chats[index]
-              .messages
-              .sort((a, b) => b.createdAt.compareTo(a.createdAt));
-          //last message
-          Message lastMessage = chats[index].messages.first;
+              User user =
+                  chats[index].users!.where((user) => user.id != '1').first;
 
-          return ListTile(
-            onTap: () {
-              Get.toNamed('/chat', arguments: [user, chats[index]]);
-            },
-            leading: CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(user.imageUrl),
-            ),
-            title: Text(
-              '${user.name} ${user.surname}',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-            subtitle: Text(lastMessage.text,
-                maxLines: 1, style: Theme.of(context).textTheme.bodySmall),
-            trailing: Text(
-                '${lastMessage.createdAt.hour}:${lastMessage.createdAt.minute}',
-                style: Theme.of(context).textTheme.bodySmall),
-          );
-        }));
+              //Sort the messages based on the creation time
+              chats[index]
+                  .messages
+                  .sort((a, b) => b.createdAt.compareTo(a.createdAt));
+              //last message
+              Message lastMessage = chats[index].messages.first;
+
+              return ListTile(
+                onTap: () {
+                  Get.toNamed('/chat', arguments: [user, chats[index]]);
+                },
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(user.imageUrl),
+                ),
+                title: Text(
+                  '${user.name} ${user.surname}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(lastMessage.text,
+                    maxLines: 1, style: Theme.of(context).textTheme.bodySmall),
+                trailing: Text(
+                    '${lastMessage.createdAt.hour}:${lastMessage.createdAt.minute}',
+                    style: Theme.of(context).textTheme.bodySmall),
+              );
+            }));
   }
 }
 
